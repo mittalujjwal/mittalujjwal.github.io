@@ -1,10 +1,15 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ujjwal Mittal · DevOps Engineer</title>
-<meta name="description" content="Ujjwal Mittal – DevOps & Platform Engineer. Kubernetes, Tekton, Helm, Ansible, Prometheus, Grafana, Azure Kubernetes Service (AKS), Apache NiFi.">
+<meta name="description" content="Ujjwal Mittal – DevOps Engineer. Kubernetes (OKD/OpenShift, EKS, AKS), GitOps with ArgoCD, GitHub Actions, container security, Ansible automation and a Kubernetes operator in Go.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ujjwal-19.github.io/">
+<meta property="og:title" content="Ujjwal Mittal · DevOps Engineer">
+<meta property="og:description" content="Kubernetes platforms, CI/CD and GitOps, container security and infrastructure automation.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230b0f17%22/%3E%3Ctext x=%2250%22 y=%2266%22 font-size=%2244%22 text-anchor=%22middle%22 fill=%22%2358a6ff%22 font-family=%22monospace%22 font-weight=%22700%22%3EUM%3C/text%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#0b0f17;--card:#121826cc;--line:#263042;--text:#e6edf3;--muted:#8b949e;--a1:#58a6ff;--a2:#a371f7;--green:#3fb950}
@@ -49,7 +54,7 @@ h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--li
 .card:hover{border-color:#58a6ff66;transform:translateY(-3px)}
 /* stats bars */
 .chart .row{margin:14px 0}
-.chart .lbl{display:flex;justify-content:space-between;font-size:14px;color:var(--muted)}
+.chart .lbl{display:flex;justify-content:space-between;gap:12px;font-size:14px;color:var(--muted)}
 .track{height:12px;background:#ffffff10;border-radius:6px;overflow:hidden;margin-top:6px}
 .fill{height:100%;border-radius:6px;width:0;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
 .before{background:#f85149aa}.after{background:linear-gradient(90deg,var(--green),var(--a1))}
@@ -64,31 +69,37 @@ h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--li
 .feat{border-color:#a371f755;background:linear-gradient(135deg,#a371f714,#58a6ff0d),var(--card)}
 .feat-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:10px}
 .feat h3{font-size:1.4rem}
-.badge{display:inline-flex;align-items:center;gap:8px;font:500 12px 'JetBrains Mono',monospace;color:#ffbd2e;border:1px solid #ffbd2e55;background:#ffbd2e14;padding:5px 12px;border-radius:999px;white-space:nowrap}
-.badge i{width:8px;height:8px;border-radius:50%;background:#ffbd2e;animation:blink 1.4s steps(1) infinite}
+.badge{display:inline-flex;align-items:center;gap:8px;font:500 12px 'JetBrains Mono',monospace;color:var(--green);border:1px solid #3fb95055;background:#3fb95014;padding:5px 12px;border-radius:999px;white-space:nowrap}
+.badge i{width:8px;height:8px;border-radius:50%;background:var(--green)}
 .feat code{font-family:'JetBrains Mono',monospace;color:var(--a2);font-size:.9em}
 .arch{width:100%;height:auto;margin:16px 0}
-.links a.off{opacity:.55;cursor:default;pointer-events:none}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:6px 28px}
+.cols h4{font:500 12px 'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:8px 0 2px}
+@media (max-width:640px){.cols{grid-template-columns:1fr}}
 /* pipeline svg */
 .pipe svg{width:100%;height:auto}
 .flow{stroke-dasharray:6 8;animation:dash 1.2s linear infinite}
 @keyframes dash{to{stroke-dashoffset:-28}}
 /* skills */
+.grp{margin-bottom:22px}
+.grp h3{font:500 12px 'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
 .skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:12px}
 .sk{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 8px;text-align:center;font-size:13px;transition:.2s}
-.sk i{font-size:34px;display:block;margin-bottom:6px}
 .sk:hover{transform:translateY(-4px) scale(1.04);border-color:var(--a2)}
 .sk img{width:36px;height:36px;display:block;margin:0 auto 8px;object-fit:contain}
-.sk .mono{width:36px;height:36px;margin:0 auto 8px;border-radius:10px;display:flex;align-items:center;justify-content:center;font:600 13px 'JetBrains Mono',monospace;color:var(--a1);background:#58a6ff1a;border:1px solid #58a6ff44}
+.sk .mono{width:36px;height:36px;margin:0 auto 8px;border-radius:10px;display:flex;align-items:center;justify-content:center;font:600 12px 'JetBrains Mono',monospace;color:var(--a1);background:#58a6ff1a;border:1px solid #58a6ff44}
 /* timeline */
 .tl{border-left:2px solid var(--line);padding-left:22px;position:relative}
 .tl .card{position:relative}
 .tl .card::before{content:"";position:absolute;left:-31px;top:26px;width:14px;height:14px;border-radius:50%;background:var(--a1);box-shadow:0 0 0 4px #58a6ff33}
+.tl .card.past::before{background:var(--line);box-shadow:none}
 .meta{color:var(--muted);font-size:14px;margin-bottom:10px}
 ul{padding-left:20px}li{margin:6px 0}
 .hl{color:var(--green);font-weight:600}
 .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
 .grid3 .card{margin:0}
+.grid3 h3{font-size:1.05rem;margin-bottom:6px}
+.grid3 ul{font-size:14.5px}
 .ico{font-size:28px;margin-bottom:8px}
 .reveal{opacity:0;transform:translateY(24px);transition:.7s}
 .reveal.in{opacity:1;transform:none}
@@ -96,6 +107,7 @@ footer{margin-top:72px;color:var(--muted);font-size:14px;text-align:center}
 @media (max-width:640px){.hero{grid-template-columns:1fr;text-align:center}.avatar{width:120px;height:120px;order:-1;margin:0 auto}.links{display:grid;grid-template-columns:1fr 1fr;gap:10px}.links a{width:100%;padding:10px 12px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 </head>
 <body>
 <div class="bg"><div class="blob b1"></div><div class="blob b2"></div></div>
@@ -105,8 +117,8 @@ footer{margin-top:72px;color:var(--muted);font-size:14px;text-align:center}
   <div>
     <div class="tag">$ whoami<span class="cur">_</span></div>
     <h1>Ujjwal Mittal</h1>
-    <p class="role">DevOps & Platform Engineer · Kubernetes · CI/CD</p>
-    <p class="sub">Specialising in data platforms on Kubernetes · <span class="hl">Apache NiFi</span> · building operators in Go</p>
+    <p class="role">DevOps Engineer · Kubernetes · CI/CD &amp; GitOps · DevSecOps</p>
+    <p class="sub">I build Kubernetes platforms, ship through GitOps pipelines and harden what runs on them.</p>
     <div class="links">
       <a href="mailto:ujjwalmittal19@gmail.com">✉ Email</a>
       <a href="https://www.linkedin.com/in/ujjwal-mittal" target="_blank" rel="noopener">in LinkedIn</a>
@@ -122,31 +134,33 @@ footer{margin-top:72px;color:var(--muted);font-size:14px;text-align:center}
 <section class="reveal">
   <h2>Impact</h2>
   <div class="stats">
-    <div class="stat"><b class="num" data-to="8" data-pre="7–">7–8</b><span>production NiFi clusters</span></div>
-    <div class="stat"><b class="num" data-to="70" data-suf="%">70%</b><span>faster NiFi provisioning</span></div>
-    <div class="stat"><b class="num" data-to="85" data-suf="%">85%</b><span>faster Odoo tenant deploys</span></div>
-    <div class="stat"><b class="num" data-to="50" data-suf="+">50+</b><span>demo environments run</span></div>
+    <div class="stat"><b class="num" data-to="8" data-pre="~" data-suf=" wks">~8 wks</b><span>operator: scoping to v1.0.0</span></div>
+    <div class="stat"><b class="num" data-to="180" data-suf="+">180+</b><span>PRs merged on the operator</span></div>
+    <div class="stat"><b class="num" data-to="0">0</b><span>critical CVEs in hardened images</span></div>
+    <div class="stat"><b class="num" data-to="10" data-pre="8–">8–10</b><span>client accounts run in parallel</span></div>
   </div>
   <div class="card chart">
-    <div class="row"><div class="lbl"><span>Odoo SaaS deploy · before</span><span>20 min</span></div><div class="track"><div class="fill before" data-w="100"></div></div></div>
-    <div class="row"><div class="lbl"><span>Odoo SaaS deploy · after</span><span class="hl">3 min · ~85% faster</span></div><div class="track"><div class="fill after" data-w="15"></div></div></div>
-    <div class="row"><div class="lbl"><span>NiFi provisioning · before</span><span>25 min</span></div><div class="track"><div class="fill before" data-w="100"></div></div></div>
-    <div class="row"><div class="lbl"><span>NiFi provisioning · after</span><span class="hl">7 min · ~70% faster</span></div><div class="track"><div class="fill after" data-w="28"></div></div></div>
+    <div class="row"><div class="lbl"><span>NiFi image · CRITICAL + HIGH CVEs · before</span><span>14 + 79</span></div><div class="track"><div class="fill before" data-w="100"></div></div></div>
+    <div class="row"><div class="lbl"><span>NiFi image · CRITICAL + HIGH CVEs · after</span><span class="hl">0 + 12 · ~87% fewer</span></div><div class="track"><div class="fill after" data-w="13"></div></div></div>
+    <div class="row"><div class="lbl"><span>SaaS tenant deploy · before</span><span>20 min</span></div><div class="track"><div class="fill before" data-w="100"></div></div></div>
+    <div class="row"><div class="lbl"><span>SaaS tenant deploy · after</span><span class="hl">under 3 min · ~85% faster</span></div><div class="track"><div class="fill after" data-w="15"></div></div></div>
+    <div class="row"><div class="lbl"><span>NiFi cluster provisioning · before</span><span>25 min</span></div><div class="track"><div class="fill before" data-w="100"></div></div></div>
+    <div class="row"><div class="lbl"><span>NiFi cluster provisioning · after</span><span class="hl">7 min · ~70% faster</span></div><div class="track"><div class="fill after" data-w="28"></div></div></div>
   </div>
 </section>
 
 <section class="reveal">
-  <h2>Featured · Open Source</h2>
+  <h2>Featured · Built at Ksolves</h2>
   <div class="card feat">
     <div class="feat-head">
       <div>
         <h3>NiFi Kubernetes Operator</h3>
-        <p class="meta">Go · Kubebuilder · CRDs · controller-runtime</p>
+        <p class="meta">Go · Kubebuilder · CRDs · admission webhooks · CSI</p>
       </div>
-      <span class="badge"><i></i>In development · v1.0.0 soon</span>
+      <span class="badge"><i></i>v1.0.0 released · Oct 2026</span>
     </div>
-    <p>A Kubernetes operator for Apache NiFi, written from scratch. Declare a <code>NiFiCluster</code> resource and the operator builds and keeps the cluster in the state you asked for.</p>
-    <svg class="arch" viewBox="0 0 930 250" font-family="JetBrains Mono, monospace" font-size="13" role="img" aria-label="Control: the NiFiCluster custom resource is watched by the operator, which creates a StatefulSet and ConfigMap, which run the NiFi pods, plus a Service. Traffic: users reach the Ingress or Gateway API, which routes to the Service, which sends traffic up to the same NiFi pods.">
+    <p>An in-house alternative to NiFiKop and Stackable that I took from scoping to a v1.0.0 release in about eight weeks. Declare a <code>NiFiCluster</code> resource and the operator builds the cluster and keeps it in the state you asked for.</p>
+    <svg class="arch" viewBox="0 0 930 250" font-family="JetBrains Mono, monospace" font-size="13" role="img" aria-label="Control: the NiFiCluster custom resource is watched by the operator, which creates a StatefulSet with per-pod certificates, which run the NiFi pods, plus a Service. Traffic: users reach the Ingress or Gateway API, which routes to the Service, which sends traffic up to the same NiFi pods.">
       <defs>
         <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#58a6ff"/></marker>
         <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#3fb950"/></marker>
@@ -175,27 +189,53 @@ footer{margin-top:72px;color:var(--muted);font-size:14px;text-align:center}
       <g fill="#e6edf3" text-anchor="middle">
         <text x="95" y="60">NiFiCluster</text><text x="95" y="80" fill="#8b949e" font-size="11">custom resource</text>
         <text x="330" y="60" fill="#a371f7">Operator</text><text x="330" y="80" fill="#8b949e" font-size="11">Go · watch · reconcile</text>
-        <text x="590" y="60">StatefulSet</text><text x="590" y="80" fill="#8b949e" font-size="11">+ ConfigMap · TLS</text>
-        <text x="835" y="60" fill="#3fb950">NiFi pods</text><text x="835" y="80" fill="#8b949e" font-size="11">3 nodes · clustered</text>
+        <text x="590" y="60">StatefulSet</text><text x="590" y="80" fill="#8b949e" font-size="11">+ per-pod certs via CSI</text>
+        <text x="835" y="60" fill="#3fb950">NiFi pods</text><text x="835" y="80" fill="#8b949e" font-size="11">node groups · clustered</text>
         <text x="95" y="190">Users</text><text x="95" y="210" fill="#8b949e" font-size="11">browser · API</text>
         <text x="330" y="190">Ingress</text><text x="330" y="210" fill="#8b949e" font-size="11">or Gateway API</text>
         <text x="590" y="190">Service</text><text x="590" y="210" fill="#8b949e" font-size="11">created by operator</text>
       </g>
     </svg>
-    <ul>
-      <li>Cluster creation and scaling from a single custom resource</li>
-      <li>Configuration and TLS managed by the operator</li>
-      <li>Day-2 operations handled by the reconcile loop</li>
-      <li>Design shaped by hands-on use of NiFiKop and Stackable</li>
-    </ul>
-    <div class="links"><a class="off" aria-disabled="true">⌥ GitHub · coming soon</a></div>
+    <div class="cols">
+      <div>
+        <h4>Features</h4>
+        <ul>
+          <li>Multiple node groups and scaling</li>
+          <li>Embedded ZooKeeper or NiFi 2.x Kubernetes leader election</li>
+          <li>Per-cluster CA, per-pod certificates through a custom CSI driver</li>
+          <li>mTLS, single-user auth, OIDC and LDAP</li>
+          <li>PDBs, graceful decommission on preStop, drift self-heal</li>
+          <li>Admission webhook with 38 validation tests</li>
+          <li>Helm chart, OpenShift SCC / restricted-v2 support</li>
+          <li>Migration, preflight checks and rollback</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Release engineering</h4>
+        <ul>
+          <li>Public images with <span class="hl">0 known CVEs</span> (Trivy + Docker Scout)</li>
+          <li>CycloneDX SBOMs and a CHANGELOG</li>
+          <li>NiFi 1.x runtime support (27 node images)</li>
+          <li>"Try-it" guides on kind</li>
+        </ul>
+        <h4>CI/CD at zero cost</h4>
+        <ul>
+          <li>GitHub Actions on self-hosted runners on OKD</li>
+          <li>ArgoCD GitOps pulling an OCI Helm chart</li>
+          <li>E2E tests on every tag and nightly</li>
+          <li>Pipeline redesigned so no Git tokens live on the cluster</li>
+        </ul>
+        <h4>Delivery</h4>
+        <ul><li>4 epics, 180+ PRs, tracked in Jira with full lead review</li></ul>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="reveal pipe">
   <h2>How I ship</h2>
   <div class="card">
-  <svg viewBox="0 0 900 140" font-family="JetBrains Mono, monospace" font-size="13">
+  <svg viewBox="0 0 900 140" font-family="JetBrains Mono, monospace" font-size="13" role="img" aria-label="Delivery pipeline: git push triggers GitHub Actions on self-hosted runners to build and run E2E tests, images are scanned with Trivy and Docker Scout, ArgoCD syncs an OCI Helm chart, and it runs on Kubernetes: OKD, EKS or AKS.">
     <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#58a6ff"/><stop offset="1" stop-color="#a371f7"/></linearGradient></defs>
     <g stroke="url(#g)" stroke-width="2.5" fill="none">
       <path class="flow" d="M130 70H190"/><path class="flow" d="M310 70H370"/><path class="flow" d="M490 70H550"/><path class="flow" d="M670 70H730"/>
@@ -204,19 +244,14 @@ footer{margin-top:72px;color:var(--muted);font-size:14px;text-align:center}
       <rect x="10" y="40" width="120" height="60" rx="12"/><rect x="190" y="40" width="120" height="60" rx="12"/><rect x="370" y="40" width="120" height="60" rx="12"/><rect x="550" y="40" width="120" height="60" rx="12"/><rect x="730" y="40" width="160" height="60" rx="12" stroke="#3fb950"/>
     </g>
     <g fill="#e6edf3" text-anchor="middle">
-      <text x="70" y="66">git push</text><text x="70" y="86" fill="#8b949e" font-size="11">trigger</text>
-      <text x="250" y="66">Tekton</text><text x="250" y="86" fill="#8b949e" font-size="11">build · test</text>
-      <text x="430" y="66">Helm</text><text x="430" y="86" fill="#8b949e" font-size="11">templated</text>
-      <text x="610" y="66">Kubernetes</text><text x="610" y="86" fill="#8b949e" font-size="11">AKS · on-prem</text>
-      <text x="810" y="66" fill="#3fb950">Prometheus</text><text x="810" y="86" fill="#8b949e" font-size="11">+ Grafana watch</text>
+      <text x="70" y="66">git push</text><text x="70" y="86" fill="#8b949e" font-size="11">tag · PR</text>
+      <text x="250" y="66">GH Actions</text><text x="250" y="86" fill="#8b949e" font-size="11">build · E2E</text>
+      <text x="430" y="66">Scan</text><text x="430" y="86" fill="#8b949e" font-size="11">Trivy · Scout</text>
+      <text x="610" y="66">ArgoCD</text><text x="610" y="86" fill="#8b949e" font-size="11">OCI Helm · GitOps</text>
+      <text x="810" y="66" fill="#3fb950">Kubernetes</text><text x="810" y="86" fill="#8b949e" font-size="11">OKD · EKS · AKS</text>
     </g>
   </svg>
   </div>
-</section>
-
-<section class="reveal">
-  <h2>Toolbox</h2>
-  <div class="skills" id="skills"></div>
 </section>
 
 <section class="reveal">
@@ -226,13 +261,25 @@ footer{margin-top:72px;color:var(--muted);font-size:14px;text-align:center}
     <h3>DevOps Engineer — Ksolves India Limited</h3>
     <p class="meta">Aug 2023 – Present · Noida</p>
     <ul>
-      <li>Run production Kubernetes for Odoo SaaS, Apache NiFi and Hadoop.</li>
-      <li>L2/L3 support across Kubernetes, Docker, Linux and AKS.</li>
+      <li>Led an in-house Kubernetes operator product from scoping to v1.0.0 in ~8 weeks.</li>
+      <li>Built and run the shared bare-metal OKD 4.19 cluster that hosts several teams' projects.</li>
+      <li>Delivered Kubernetes, cloud and data-platform work for 8–10 client accounts in parallel, about 16 projects at once.</li>
+      <li>Container hardening and vulnerability remediation with measured CVE reductions; answered client security audits with SBOM evidence.</li>
+      <li>Handled two security incidents, including response to a CI supply-chain compromise.</li>
+      <li>Pre-sales architecture: designed a CDC data pipeline and sized and built a 29-VM HA lab for a tender.</li>
+    </ul>
+  </div>
+  <div class="card past">
+    <h3>Earlier at Ksolves</h3>
+    <p class="meta">Kubernetes operations &amp; CI/CD</p>
+    <ul>
       <li>Tekton pipelines for deploys, PV provisioning, ingress and namespaces.</li>
-      <li>Reusable Helm templates to kill config drift.</li>
-      <li>Ansible + Shell automation for provisioning and routine ops.</li>
-      <li>Prometheus + Grafana dashboards for all major workloads.</li>
-      <li>Incident handling with RCAs; 50+ Docker demo environments.</li>
+      <li>Ran production Kubernetes for a multi-tenant Odoo SaaS, Apache NiFi and Hadoop.</li>
+      <li>Reusable Helm templates to eliminate config drift.</li>
+      <li>Ansible + Shell automation for provisioning and routine operations.</li>
+      <li>Prometheus + Grafana dashboards for major workloads.</li>
+      <li>L2/L3 support across Kubernetes, Docker, Linux and AKS; incident handling with RCAs.</li>
+      <li>Built and ran 50+ Docker-based demo environments.</li>
     </ul>
   </div>
   </div>
@@ -241,17 +288,29 @@ footer{margin-top:72px;color:var(--muted);font-size:14px;text-align:center}
 <section class="reveal">
   <h2>Projects</h2>
   <div class="grid3">
-    <div class="card"><div class="ico">🏦</div><h3>VM → AKS Migration</h3><ul><li>Financial platform, <span class="hl">zero regressions</span>.</li><li>NiFi + Airflow via Helm, Azure AD OIDC.</li><li>cert-manager TLS, Prometheus HA.</li></ul></div>
-    <div class="card"><div class="ico">🏢</div><h3>Multi-Tenant Odoo SaaS</h3><ul><li>Tekton: provision, upgrade, auto-rollback.</li><li>Tenant deploy in <span class="hl">2–3 min</span>.</li></ul></div>
-    <div class="card"><div class="ico">🌊</div><h3>Apache NiFi Automation</h3><ul><li>Standard Helm deploys.</li><li><span class="hl">25 → 7 min</span> provisioning.</li></ul></div>
+    <div class="card"><div class="ico">🖥️</div><h3>Bare-metal OKD 4.19 on Proxmox</h3><ul><li>3 control-plane nodes, up to 5 workers.</li><li>HAProxy, dnsmasq and nginx on a bastion; Let's Encrypt via cert-manager with Route 53 / Cloudflare DNS.</li><li>Day-2: added workers, kept <span class="hl">all 33 cluster operators healthy</span>, recovered orphaned PVs.</li><li>Hosts Flink, NiFi, ArgoCD and CI runner workloads; setup guide, runbooks and handover docs.</li></ul></div>
+    <div class="card"><div class="ico">🛡️</div><h3>Container Hardening</h3><ul><li>NiFi 2.8 image: <span class="hl">14 CRITICAL / 79 HIGH → 0 / 12</span>.</li><li>Debian, UBI9, Chainguard/Wolfi and distroless variants.</li><li>Rebuilt a shaded jar from source, backported libacl.</li><li>Team rule: scan every image with both Trivy and Docker Scout.</li></ul></div>
+    <div class="card"><div class="ico">🔐</div><h3>Security &amp; Compliance</h3><ul><li>Fixed findings from a banking client's Qualys scans: Log4j, TLS ciphers, cookie flags, EOL Node.js, certificates.</li><li>Lab-tested every fix first; wrote risk-exception notes and a Kerberos / SPNEGO runbook.</li><li>Incident response: cleaned 9 repos, rewrote git history, rotated SSH keys.</li></ul></div>
+    <div class="card"><div class="ico">☁️</div><h3>Cloud Migrations</h3><ul><li>Moved Helm workloads from AKS to <span class="hl">EKS Auto Mode</span>.</li><li>Migrated NiFi 2.8 (3 nodes, NiFiKop, Registry), Airflow 3.2 and Prometheus/Grafana from AWS to private AKS.</li><li>Financial platform VM → AKS with <span class="hl">zero regressions</span>: Azure AD OIDC, cert-manager TLS, Prometheus HA.</li></ul></div>
+    <div class="card"><div class="ico">⚙️</div><h3>Ansible IaC on Bare VMs</h3><ul><li>Keycloak, Kafka KRaft, MinIO, Trino, Airflow, Patroni Postgres, HAProxy + keepalived, HashiCorp Vault.</li><li>Split the stack into 9 install lots; audited coverage across 9 branches.</li><li>Fixed a production HAProxy / Vault backend incident.</li></ul></div>
+    <div class="card"><div class="ico">🌊</div><h3>Data Platforms on Kubernetes</h3><ul><li>Flink: Helm chart with ZooKeeper HA, Flink Operator, Ververica Platform on OKD; replaced insecure auth with Keycloak OIDC.</li><li>Self-service Ansible ALB flow for NiFi clusters; ZooKeeper-free NiFi clustering proven live.</li><li>Audited another team's NiFi Helm charts on OKD: 20 pass, 14 fail, must-fix list.</li><li>Hadoop 3.4 / Hive 4: root-caused a production Hive MERGE failure to the JDK 8 → 11 move.</li></ul></div>
+    <div class="card"><div class="ico">🚀</div><h3>Multi-Tenant SaaS CI/CD</h3><ul><li>Tekton pipelines for tenant provisioning, upgrades and auto-rollback.</li><li>Tenant deploy in <span class="hl">under 3 min</span>; Odoo on Kubernetes with Longhorn storage.</li></ul></div>
+    <div class="card"><div class="ico">🧰</div><h3>Automation &amp; Tooling</h3><ul><li><code>ec2-box</code>: launches N EC2 instances and writes an Ansible inventory; bootstrapped a 3-node Patroni/etcd cluster. Also sftp-, ftp- and tftp-box.</li><li>AI agents for AWS security updates and Docker vulnerability auto-patching.</li><li>AWS account audit: inventory and cost review of 128 EC2 instances.</li></ul></div>
+    <div class="card"><div class="ico">🧪</div><h3>POCs &amp; Linux Ops</h3><ul><li>Spark on Kubernetes (Kubeflow operator, tighter RBAC), Airflow HA on kind, Ranger, OpenSearch sizing, KubeEdge edge-to-cloud Kafka on AWS.</li><li>Apache / PHP-FPM / WordPress, Let's Encrypt, Node/PM2; diagnosed a full-disk outage.</li><li>Wiki.js with OpenLDAP (LDAPS) behind nginx TLS.</li></ul></div>
   </div>
 </section>
 
 <section class="reveal">
-  <h2>Education</h2>
+  <h2>Toolbox</h2>
+  <div id="skills"></div>
+</section>
+
+<section class="reveal">
+  <h2>Education &amp; Learning</h2>
   <div class="grid3">
     <div class="card"><div class="ico">🎓</div><b>MCA</b><p class="meta">ABES Engineering College · 2024</p></div>
     <div class="card"><div class="ico">📘</div><b>B.Sc</b><p class="meta">D. N. College, Meerut · 2021</p></div>
+    <div class="card"><div class="ico">📚</div><b>Currently learning</b><p class="meta">CKA preparation · observability deep-dive</p></div>
   </div>
 </section>
 
@@ -261,13 +320,14 @@ footer{margin-top:72px;color:var(--muted);font-size:14px;text-align:center}
 <script>
 // terminal typing
 const lines=[
- ['p','$ tkn pipeline start deploy-odoo-tenant'],
- ['ok','✔ odoo tenant live in 2m41s'],
- ['p','$ kubectl get nificlusters -A'],
- ['','prod-nifi     3/3   Running   (k8s lease)'],
- ['','analytics     3/3   Running   (zookeeper)'],
- ['p','$ make deploy   # nifi-operator (Go · Kubebuilder)'],
- ['ok','✔ v1.0.0 coming soon']];
+ ['p','$ git tag v1.0.0 && git push origin v1.0.0'],
+ ['ok','✔ actions: build · e2e · trivy · scout passed'],
+ ['p','$ argocd app sync nifi-operator'],
+ ['ok','✔ synced · healthy'],
+ ['p','$ trivy image --severity CRITICAL nifi:2.8-hardened'],
+ ['ok','✔ Total: 0 (CRITICAL: 0)'],
+ ['p','$ oc get clusteroperators'],
+ ['','33 available · 0 progressing · 0 degraded']];
 const t=document.getElementById('term');let li=0,ci=0,span;
 function type(){if(li>=lines.length)return;
  if(ci===0){span=document.createElement('span');span.className=lines[li][0];t.appendChild(span)}
@@ -275,25 +335,33 @@ function type(){if(li>=lines.length)return;
  if(ci>lines[li][1].length){t.appendChild(document.createTextNode('\n'));li++;ci=0;setTimeout(type,350)}
  else setTimeout(type,lines[li][0]==='p'?40:8)}
 type();
-// toolbox: SVG icons with variant fallback, then a text badge
-const CDN='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/';
-const tools=[
- ['Apache NiFi',null,'NiFi'],['Kubernetes','kubernetes'],['Docker','docker'],['Helm','helm'],
- ['Go','go'],['Git','git'],['Jenkins','jenkins'],['GitHub Actions','githubactions'],
- ['Tekton',null,'TK'],['Ansible','ansible'],['Terraform','terraform'],['Shell','bash'],
- ['Prometheus','prometheus'],['Grafana','grafana'],['AKS','azure'],['AWS','amazonwebservices','AWS'],
- ['Airflow','apacheairflow'],['Hadoop','hadoop'],['PostgreSQL','postgresql'],['Linux','linux']];
-const box=document.getElementById('skills');
-tools.forEach(([name,slug,abbr])=>{
- const d=document.createElement('div');d.className='sk';
- const badge=()=>{const m=document.createElement('span');m.className='mono';m.textContent=abbr||name.slice(0,2);return m};
- if(slug){
-  const img=document.createElement('img');img.alt='';img.loading='lazy';
-  const tries=['original','plain','original-wordmark','plain-wordmark'];let i=0;
-  img.onerror=()=>{if(++i<tries.length)img.src=CDN+slug+'/'+slug+'-'+tries[i]+'.svg';else img.replaceWith(badge())};
-  img.src=CDN+slug+'/'+slug+'-'+tries[0]+'.svg';d.appendChild(img);
- }else d.appendChild(badge());
- d.appendChild(document.createTextNode(name));box.appendChild(d);
+// toolbox: grouped by DevOps area; SVG icons with variant fallback, then a text badge
+const CDN='https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/';
+const groups=[
+ ['CI/CD & GitOps',[['GitHub Actions','githubactions'],['ArgoCD','argocd'],['Tekton',null,'TK'],['Jenkins','jenkins'],['Git','git']]],
+ ['Kubernetes & Containers',[['Kubernetes','kubernetes'],['OpenShift / OKD','openshift','OKD'],['Helm','helm'],['Docker','docker'],['Kubebuilder',null,'KB']]],
+ ['Automation & Languages',[['Ansible','ansible'],['Go','go'],['Bash','bash'],['Python','python']]],
+ ['Cloud & Infrastructure',[['AWS','amazonwebservices','AWS'],['Azure AKS','azure'],['Proxmox',null,'PVE'],['Linux','linux'],['HAProxy',null,'HA']]],
+ ['Security',[['Trivy',null,'TRV'],['Docker Scout',null,'DS'],['Keycloak',null,'KC'],['Vault','vault','VLT'],['cert-manager',null,'CM']]],
+ ['Monitoring',[['Prometheus','prometheus'],['Grafana','grafana']]],
+ ['Data Platforms I Operate',[['Apache NiFi',null,'NiFi'],['Kafka','apachekafka'],['Flink',null,'FLK'],['Spark','apachespark'],['Airflow','apacheairflow'],['Hadoop','hadoop'],['PostgreSQL','postgresql']]]];
+const root=document.getElementById('skills');
+groups.forEach(([title,tools])=>{
+ const g=document.createElement('div');g.className='grp';
+ const h=document.createElement('h3');h.textContent=title;g.appendChild(h);
+ const box=document.createElement('div');box.className='skills';g.appendChild(box);
+ tools.forEach(([name,slug,abbr])=>{
+  const d=document.createElement('div');d.className='sk';
+  const badge=()=>{const m=document.createElement('span');m.className='mono';m.textContent=abbr||name.slice(0,2);return m};
+  if(slug){
+   const img=document.createElement('img');img.alt='';img.loading='lazy';
+   const tries=['original','plain','original-wordmark','plain-wordmark'];let i=0;
+   img.onerror=()=>{if(++i<tries.length)img.src=CDN+slug+'/'+slug+'-'+tries[i]+'.svg';else img.replaceWith(badge())};
+   img.src=CDN+slug+'/'+slug+'-'+tries[0]+'.svg';d.appendChild(img);
+  }else d.appendChild(badge());
+  d.appendChild(document.createTextNode(name));box.appendChild(d);
+ });
+ root.appendChild(g);
 });
 // reveal + bars
 const calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
